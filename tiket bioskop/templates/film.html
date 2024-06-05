@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ film.judul }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">{{ film.judul }}</h1>
+        <p><strong>Genre:</strong> {{ film.genre }}</p>
+        <p><strong>Durasi:</strong> {{ film.durasi }} menit</p>
+        <h2 class="my-4">Jadwal</h2>
+        <ul class="list-group">
+            {% for jadwal in jadwals %}
+                <li class="list-group-item">
+                    <a href="{{ url_for('jadwal', jadwal_id=jadwal.id) }}">{{ jadwal.tanggal }} {{ jadwal.waktu }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
